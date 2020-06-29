@@ -33,6 +33,11 @@ export default new Vuex.Store({
     },
     UPDATE_TASK(state, { task, key, value }) {
       task[key] = value
+    },
+    MOVE_TASK(state, { fromTasks, toTasks, taskIndex }) {
+      const taskToMove = fromTasks.splice(taskIndex, 1)[0]
+      console.log(taskIndex)
+      toTasks.push(taskToMove)
     }
   }
 })
